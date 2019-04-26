@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+
+  render:
+    build: ./
+    image: home.4it.me:5000/ofc-render:latest
+    command: node .
+    volumes:
+      - /var/www/online.fdm.center/uploads:/app/uploads
+    environment:
+      ADMIN_AUTH_TOKEN: ${ADMIN_AUTH_TOKEN}
+      STL_DIR: /app/uploads
